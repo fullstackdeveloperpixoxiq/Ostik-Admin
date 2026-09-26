@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { ArrowLeft, Upload, Video } from "lucide-react";
+import { ArrowLeft, Upload } from "lucide-react";
 import { useNavigate } from "react-router";
 import { toast } from "sonner";
 
