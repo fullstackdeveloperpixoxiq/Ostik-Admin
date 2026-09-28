@@ -4,8 +4,9 @@ import { resolve } from 'path';
 import fs from 'fs/promises';
 import svgr from '@svgr/rollup';
 
-// https://vitejs.dev/config/
+
 export default defineConfig({
+    base: "/ostik-admin/",
     resolve: {
         alias: {
             src: resolve(__dirname, 'src'),
