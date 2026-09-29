@@ -72,7 +72,7 @@ const AdminLogin = () => {
       );
 
       // Navigate to admin dashboard
-      navigate("/ostik-admin/dashboard");
+      navigate("/dashboard");
     } catch (error) {
       console.error("Admin login error:", error);
 
