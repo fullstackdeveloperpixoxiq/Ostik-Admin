@@ -1,164 +1,796 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
+
 import { lazy } from 'react';
 import { Navigate, createBrowserRouter } from 'react-router';
 import Loadable from '../layouts/full/shared/loadable/Loadable';
 
-/* ***Layouts**** */
-const FullLayout = Loadable(lazy(() => import('../layouts/full/FullLayout')));
-const BlankLayout = Loadable(lazy(() => import('../layouts/blank/BlankLayout')));
 
-// authentication
+/* =========================================================
+   LAYOUTS
+========================================================= */
 
-const Register2 = Loadable(lazy(() => import('../views/authentication/auth2/Register')));
+const FullLayout = Loadable(
+  lazy(() => import('../layouts/full/FullLayout'))
+);
 
-const Maintainance = Loadable(lazy(() => import('../views/authentication/Maintainance')));
+const BlankLayout = Loadable(
+  lazy(() => import('../layouts/blank/BlankLayout'))
+);
 
-
-
-//adminLogin
-const AdminLogin= Loadable(lazy(()=> import('../views/adminLogin/adminLogin')))
-
-// Dashboards
-const Modern = Loadable(lazy(() => import('../views/dashboards/Modern')));
-
-//pages
-const UserProfile = Loadable(lazy(() => import('../views/pages/user-profile/UserProfile')));
-
-//admin pages
-const Orders= Loadable(lazy(()=> import('../views/Orders/Orders')))
-const OrderDetails= Loadable(lazy(()=> import('../views/Orders/OrderDetails')))
-const Products= Loadable(lazy(()=> import('../views/Products/Products')))
-const AddProduct = Loadable(lazy(() => import("../views/Products/Addproduct")));
-const ProductDetails = Loadable(lazy(() => import("../views/Products/ProductDetail")));
-const EditProduct = Loadable(lazy(() => import("../views/Products/EditProduct")));
-const Categories = Loadable(lazy(() => import('../views/Categories/Categories')));
-const AddCategories = Loadable(lazy(() => import('../views/Categories/AddCategories')));
-const CategoryDetails = Loadable(lazy(() => import('../views/Categories/CategoryDetails')));
-const EditCategory = Loadable(lazy(() => import('../views/Categories/EditCategories')));
-const Customers = Loadable(lazy(() => import('../views/Customers/Customers')));
-const AddCustomer = Loadable(lazy(() => import('../views/Customers/Addcustomers')));
-const CustomerDetails = Loadable(lazy(() => import('../views/Customers/CustomerDetails')));
-const EditCustomer = Loadable(lazy(() => import('../views/Customers/EditCustomers')));
-const Reviews = Loadable(lazy(() => import('../views/Reviews/Reviews')));
-const ReviewDetails = Loadable(lazy(() => import('../views/Reviews/ReviewDetails')));
-const Payments = Loadable(lazy(() => import('../views/Payments/Payments')));
-const PaymentDetails = Loadable(lazy(() => import('../views/Payments/PaymentDetails')));
-const Banners = Loadable(lazy(() => import('../views/Banners/Banners')));
-const AddBanners = Loadable(lazy(() => import('../views/Banners/AddBanner')));
-const BannerDetails = Loadable(lazy(() => import('../views/Banners/BannerDetails')));
-const EditBanner = Loadable(lazy(() => import('../views/Banners/EditBanner')));
-const Newsletter = Loadable(lazy(() => import('../views/NewsLetter/NewsLetter')));
-const NewsletterDetails = Loadable(lazy(() => import('../views/NewsLetter/NewsletterDetails')));
-const Contact = Loadable(lazy(() => import('../views/Contact/Contact')));
-const ContactDetails = Loadable(lazy(() => import('../views/Contact/ContactDetails')));
-const VideoSection = Loadable(lazy(() => import('../views/VideoSection/VideoSection')));
-const AddVideoSection = Loadable(lazy(() => import('../views/VideoSection/AddvideoSection')));
-const EditVideoSection = Loadable(lazy(() => import('../views/VideoSection/EditVideoSection')));
-const Variant = Loadable(lazy(() => import('../views/Variants/Variants')));
-const AddVariant = Loadable(lazy(() => import('../views/Variants/AddVariants')));
-const VariantDetails = Loadable(lazy(() => import('../views/Variants/VariantDetails')));
-const EditVariant = Loadable(lazy(() => import('../views/Variants/EditVariants')));
-const Cancel = Loadable(lazy(() => import('../views/Cancel/Cancel')));
-const Return = Loadable(lazy(() => import('../views/Return/Return')));
-const ReturnDetails = Loadable(lazy(() => import('../views/Return/ReturnDetails')));
-const Exchange = Loadable(lazy(() => import('../views/Exchange/Exchange')));
-const ExchangeDetails = Loadable(lazy(() => import('../views/Exchange/ExchangeDetails')));
+const ProtectedRoute = Loadable(
+  lazy(() => import('../routes/ProtectedRoute'))
+);
 
 
-/* ****Apps***** */
-const Notes = Loadable(lazy(() => import('../views/apps/notes/Notes')));
-const Form = Loadable(lazy(() => import('../views/utilities/form/Form')));
-const Table = Loadable(lazy(() => import('../views/utilities/table/Table')));
-const Tickets = Loadable(lazy(() => import('../views/apps/tickets/Tickets')));
-const CreateTickets = Loadable(lazy(() => import('../views/apps/tickets/CreateTickets')));
-const Blog = Loadable(lazy(() => import('../views/apps/blog/Blog')));
-const BlogDetail = Loadable(lazy(() => import('../views/apps/blog/BlogDetail')));
+/* =========================================================
+   AUTHENTICATION
+========================================================= */
 
-const Error = Loadable(lazy(() => import('../views/authentication/Error')));
+const Register2 = Loadable(
+  lazy(() => import('../views/authentication/auth2/Register'))
+);
 
-// // icons
-const SolarIcon = Loadable(lazy(() => import('../views/icons/SolarIcon')));
+const Maintainance = Loadable(
+  lazy(() => import('../views/authentication/Maintainance'))
+);
 
-// const SamplePage = lazy(() => import('../views/sample-page/SamplePage'));
+const AdminLogin = Loadable(
+  lazy(() => import('../views/adminLogin/adminLogin'))
+);
+
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+const Modern = Loadable(
+  lazy(() => import('../views/dashboards/Modern'))
+);
+
+
+/* =========================================================
+   USER PROFILE
+========================================================= */
+
+const UserProfile = Loadable(
+  lazy(() => import('../views/pages/user-profile/UserProfile'))
+);
+
+
+/* =========================================================
+   ORDERS
+========================================================= */
+
+const Orders = Loadable(
+  lazy(() => import('../views/Orders/Orders'))
+);
+
+const OrderDetails = Loadable(
+  lazy(() => import('../views/Orders/OrderDetails'))
+);
+
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
+const Products = Loadable(
+  lazy(() => import('../views/Products/Products'))
+);
+
+const AddProduct = Loadable(
+  lazy(() => import('../views/Products/Addproduct'))
+);
+
+const ProductDetails = Loadable(
+  lazy(() => import('../views/Products/ProductDetail'))
+);
+
+const EditProduct = Loadable(
+  lazy(() => import('../views/Products/EditProduct'))
+);
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+const Categories = Loadable(
+  lazy(() => import('../views/Categories/Categories'))
+);
+
+const AddCategories = Loadable(
+  lazy(() => import('../views/Categories/AddCategories'))
+);
+
+const CategoryDetails = Loadable(
+  lazy(() => import('../views/Categories/CategoryDetails'))
+);
+
+const EditCategory = Loadable(
+  lazy(() => import('../views/Categories/EditCategories'))
+);
+
+
+/* =========================================================
+   CUSTOMERS
+========================================================= */
+
+const Customers = Loadable(
+  lazy(() => import('../views/Customers/Customers'))
+);
+
+const AddCustomer = Loadable(
+  lazy(() => import('../views/Customers/Addcustomers'))
+);
+
+const CustomerDetails = Loadable(
+  lazy(() => import('../views/Customers/CustomerDetails'))
+);
+
+const EditCustomer = Loadable(
+  lazy(() => import('../views/Customers/EditCustomers'))
+);
+
+
+/* =========================================================
+   REVIEWS
+========================================================= */
+
+const Reviews = Loadable(
+  lazy(() => import('../views/Reviews/Reviews'))
+);
+
+const ReviewDetails = Loadable(
+  lazy(() => import('../views/Reviews/ReviewDetails'))
+);
+
+
+/* =========================================================
+   PAYMENTS
+========================================================= */
+
+const Payments = Loadable(
+  lazy(() => import('../views/Payments/Payments'))
+);
+
+const PaymentDetails = Loadable(
+  lazy(() => import('../views/Payments/PaymentDetails'))
+);
+
+
+/* =========================================================
+   BANNERS
+========================================================= */
+
+const Banners = Loadable(
+  lazy(() => import('../views/Banners/Banners'))
+);
+
+const AddBanners = Loadable(
+  lazy(() => import('../views/Banners/AddBanner'))
+);
+
+const BannerDetails = Loadable(
+  lazy(() => import('../views/Banners/BannerDetails'))
+);
+
+const EditBanner = Loadable(
+  lazy(() => import('../views/Banners/EditBanner'))
+);
+
+
+/* =========================================================
+   NEWSLETTER
+========================================================= */
+
+const Newsletter = Loadable(
+  lazy(() => import('../views/NewsLetter/NewsLetter'))
+);
+
+const NewsletterDetails = Loadable(
+  lazy(() => import('../views/NewsLetter/NewsletterDetails'))
+);
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+const Contact = Loadable(
+  lazy(() => import('../views/Contact/Contact'))
+);
+
+const ContactDetails = Loadable(
+  lazy(() => import('../views/Contact/ContactDetails'))
+);
+
+
+/* =========================================================
+   VIDEO SECTION
+========================================================= */
+
+const VideoSection = Loadable(
+  lazy(() => import('../views/VideoSection/VideoSection'))
+);
+
+const AddVideoSection = Loadable(
+  lazy(() => import('../views/VideoSection/AddvideoSection'))
+);
+
+const EditVideoSection = Loadable(
+  lazy(() => import('../views/VideoSection/EditVideoSection'))
+);
+
+
+/* =========================================================
+   VARIANTS
+========================================================= */
+
+const Variant = Loadable(
+  lazy(() => import('../views/Variants/Variants'))
+);
+
+const AddVariant = Loadable(
+  lazy(() => import('../views/Variants/AddVariants'))
+);
+
+const VariantDetails = Loadable(
+  lazy(() => import('../views/Variants/VariantDetails'))
+);
+
+const EditVariant = Loadable(
+  lazy(() => import('../views/Variants/EditVariants'))
+);
+
+
+/* =========================================================
+   CANCEL
+========================================================= */
+
+const Cancel = Loadable(
+  lazy(() => import('../views/Cancel/Cancel'))
+);
+
+
+/* =========================================================
+   RETURNS
+========================================================= */
+
+const Return = Loadable(
+  lazy(() => import('../views/Return/Return'))
+);
+
+const ReturnDetails = Loadable(
+  lazy(() => import('../views/Return/ReturnDetails'))
+);
+
+
+/* =========================================================
+   EXCHANGES
+========================================================= */
+
+const Exchange = Loadable(
+  lazy(() => import('../views/Exchange/Exchange'))
+);
+
+const ExchangeDetails = Loadable(
+  lazy(() => import('../views/Exchange/ExchangeDetails'))
+);
+
+
+/* =========================================================
+   APPS
+========================================================= */
+
+const Notes = Loadable(
+  lazy(() => import('../views/apps/notes/Notes'))
+);
+
+const Form = Loadable(
+  lazy(() => import('../views/utilities/form/Form'))
+);
+
+const Table = Loadable(
+  lazy(() => import('../views/utilities/table/Table'))
+);
+
+const Tickets = Loadable(
+  lazy(() => import('../views/apps/tickets/Tickets'))
+);
+
+const CreateTickets = Loadable(
+  lazy(() => import('../views/apps/tickets/CreateTickets'))
+);
+
+const Blog = Loadable(
+  lazy(() => import('../views/apps/blog/Blog'))
+);
+
+const BlogDetail = Loadable(
+  lazy(() => import('../views/apps/blog/BlogDetail'))
+);
+
+
+/* =========================================================
+   ICONS
+========================================================= */
+
+const SolarIcon = Loadable(
+  lazy(() => import('../views/icons/SolarIcon'))
+);
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+const Error = Loadable(
+  lazy(() => import('../views/authentication/Error'))
+);
+
+
+/* =========================================================
+   ROUTER
+========================================================= */
 
 const Router = [
+
+  /* =======================================================
+     PROTECTED ADMIN ROUTES
+  ======================================================= */
+
   {
     path: '/',
-    element: <FullLayout />,
-    children: [
-      { path: '/', element: (<Navigate to="/login" replace/>) }, 
-      { path: "/dashboard", element: <Modern /> },
-      { path: '/orders', exact: true, element: <Orders /> }, 
-      { path: '/orders/:id', exact: true, element: <OrderDetails /> }, 
-      { path: '/products', exact: true, element: <Products /> }, 
-      { path: '/products/add', exact: true, element: <AddProduct /> }, 
-      { path: '/products/:id', exact: true, element: <ProductDetails /> }, 
-      { path: '/products/edit/:id', exact: true, element: <EditProduct /> }, 
-      { path: '/categories', exact: true, element: <Categories/> }, 
-      { path: '/categories/add', exact: true, element: <AddCategories/> }, 
-      { path: '/categories/:id', exact: true, element: <CategoryDetails/> }, 
-      { path: '/categories/edit/:id', exact: true, element: <EditCategory/> }, 
-      { path: '/customers', exact: true, element: <Customers/> }, 
-      { path: '/customers/add', exact: true, element: <AddCustomer/> }, 
-      { path: '/customers/:id', exact: true, element: <CustomerDetails/> }, 
-      { path: '/customers/edit/:id', exact: true, element: <EditCustomer/> },   
-      { path: '/reviews', exact: true, element: <Reviews/> },   
-      { path: '/reviews/:id', exact: true, element: <ReviewDetails/> },   
-      { path: '/payments', exact: true, element: <Payments/> },   
-      { path: '/payments/:id', exact: true, element: <PaymentDetails/> },   
-      { path: '/banners', exact: true, element: <Banners/> },   
-      { path: '/banners/add', exact: true, element: <AddBanners/> },   
-      { path: '/banners/:id', exact: true, element: <BannerDetails/> },   
-      { path: '/banners/edit/:id', exact: true, element: <EditBanner/> },   
-      { path: '/newsletter', exact: true, element: <Newsletter/> },   
-      { path: '/newsletter/:id', exact: true, element: <NewsletterDetails/> },  
-      { path: '/contacts', exact: true, element: <Contact/> },  
-      { path: '/contacts/:id', exact: true, element: <ContactDetails/> },  
-      { path: '/video-section', exact: true, element: <VideoSection/> },  
-      { path: '/video-section/add', exact: true, element: <AddVideoSection/> },  
-      { path: '/video-section/edit/:id', exact: true, element: <EditVideoSection/> },
-      { path: '/variants', exact: true, element: <Variant/> },
-      { path: '/variants/add', exact: true, element: <AddVariant/> },
-      { path: '/variants/:id', exact: true, element: <VariantDetails/> },
-      { path: '/variants/edit/:id', exact: true, element: <EditVariant/> },
-      { path: '/cancel', exact: true, element: <Cancel/> },
-      { path: '/returns', exact: true, element: <Return/> },
-      { path: '/returns/:id', exact: true, element: <ReturnDetails/> },
-      { path: '/exchanges', exact: true, element: <Exchange/> },
-      { path: '/exchanges/:id', exact: true, element: <ExchangeDetails/> },
-      { path: '*', element: <Navigate to="/auth/404" /> },
+    element: <ProtectedRoute />,
 
-      { path: '/apps/notes', element: <Notes /> },
-      { path: '/utilities/form', element: <Form /> },
-      { path: '/utilities/table', element: <Table /> },
-      { path: '/apps/tickets', element: <Tickets /> },
-      { path: '/apps/tickets/create', element: <CreateTickets /> },
-      { path: '/apps/blog/post', element: <Blog /> },
-      { path: '/apps/blog/detail/:id', element: <BlogDetail /> },
-      { path: '/user-profile', element: <UserProfile /> },
-      { path: '/icons/iconify', element: <SolarIcon /> },
+    children: [
+
+      {
+        element: <FullLayout />,
+
+        children: [
+
+          /* -------------------------------------------------
+             ADMIN ROOT
+          ------------------------------------------------- */
+
+          {
+            path: '/',
+            element: (
+              <Navigate
+                to="/dashboard"
+                replace
+              />
+            ),
+          },
+
+
+          /* -------------------------------------------------
+             DASHBOARD
+          ------------------------------------------------- */
+
+          {
+            path: '/dashboard',
+            element: <Modern />,
+          },
+
+
+          /* -------------------------------------------------
+             ORDERS
+          ------------------------------------------------- */
+
+          {
+            path: '/orders',
+            element: <Orders />,
+          },
+
+          {
+            path: '/orders/:id',
+            element: <OrderDetails />,
+          },
+
+
+          /* -------------------------------------------------
+             PRODUCTS
+          ------------------------------------------------- */
+
+          {
+            path: '/products',
+            element: <Products />,
+          },
+
+          {
+            path: '/products/add',
+            element: <AddProduct />,
+          },
+
+          {
+            path: '/products/:id',
+            element: <ProductDetails />,
+          },
+
+          {
+            path: '/products/edit/:id',
+            element: <EditProduct />,
+          },
+
+
+          /* -------------------------------------------------
+             CATEGORIES
+          ------------------------------------------------- */
+
+          {
+            path: '/categories',
+            element: <Categories />,
+          },
+
+          {
+            path: '/categories/add',
+            element: <AddCategories />,
+          },
+
+          {
+            path: '/categories/:id',
+            element: <CategoryDetails />,
+          },
+
+          {
+            path: '/categories/edit/:id',
+            element: <EditCategory />,
+          },
+
+
+          /* -------------------------------------------------
+             CUSTOMERS
+          ------------------------------------------------- */
+
+          {
+            path: '/customers',
+            element: <Customers />,
+          },
+
+          {
+            path: '/customers/add',
+            element: <AddCustomer />,
+          },
+
+          {
+            path: '/customers/:id',
+            element: <CustomerDetails />,
+          },
+
+          {
+            path: '/customers/edit/:id',
+            element: <EditCustomer />,
+          },
+
+
+          /* -------------------------------------------------
+             REVIEWS
+          ------------------------------------------------- */
+
+          {
+            path: '/reviews',
+            element: <Reviews />,
+          },
+
+          {
+            path: '/reviews/:id',
+            element: <ReviewDetails />,
+          },
+
+
+          /* -------------------------------------------------
+             PAYMENTS
+          ------------------------------------------------- */
+
+          {
+            path: '/payments',
+            element: <Payments />,
+          },
+
+          {
+            path: '/payments/:id',
+            element: <PaymentDetails />,
+          },
+
+
+          /* -------------------------------------------------
+             BANNERS
+          ------------------------------------------------- */
+
+          {
+            path: '/banners',
+            element: <Banners />,
+          },
+
+          {
+            path: '/banners/add',
+            element: <AddBanners />,
+          },
+
+          {
+            path: '/banners/:id',
+            element: <BannerDetails />,
+          },
+
+          {
+            path: '/banners/edit/:id',
+            element: <EditBanner />,
+          },
+
+
+          /* -------------------------------------------------
+             NEWSLETTER
+          ------------------------------------------------- */
+
+          {
+            path: '/newsletter',
+            element: <Newsletter />,
+          },
+
+          {
+            path: '/newsletter/:id',
+            element: <NewsletterDetails />,
+          },
+
+
+          /* -------------------------------------------------
+             CONTACTS
+          ------------------------------------------------- */
+
+          {
+            path: '/contacts',
+            element: <Contact />,
+          },
+
+          {
+            path: '/contacts/:id',
+            element: <ContactDetails />,
+          },
+
+
+          /* -------------------------------------------------
+             VIDEO SECTION
+          ------------------------------------------------- */
+
+          {
+            path: '/video-section',
+            element: <VideoSection />,
+          },
+
+          {
+            path: '/video-section/add',
+            element: <AddVideoSection />,
+          },
+
+          {
+            path: '/video-section/edit/:id',
+            element: <EditVideoSection />,
+          },
+
+
+          /* -------------------------------------------------
+             VARIANTS
+          ------------------------------------------------- */
+
+          {
+            path: '/variants',
+            element: <Variant />,
+          },
+
+          {
+            path: '/variants/add',
+            element: <AddVariant />,
+          },
+
+          {
+            path: '/variants/:id',
+            element: <VariantDetails />,
+          },
+
+          {
+            path: '/variants/edit/:id',
+            element: <EditVariant />,
+          },
+
+
+          /* -------------------------------------------------
+             CANCEL
+          ------------------------------------------------- */
+
+          {
+            path: '/cancel',
+            element: <Cancel />,
+          },
+
+
+          /* -------------------------------------------------
+             RETURNS
+          ------------------------------------------------- */
+
+          {
+            path: '/returns',
+            element: <Return />,
+          },
+
+          {
+            path: '/returns/:id',
+            element: <ReturnDetails />,
+          },
+
+
+          /* -------------------------------------------------
+             EXCHANGES
+          ------------------------------------------------- */
+
+          {
+            path: '/exchanges',
+            element: <Exchange />,
+          },
+
+          {
+            path: '/exchanges/:id',
+            element: <ExchangeDetails />,
+          },
+
+
+          /* -------------------------------------------------
+             APPS
+          ------------------------------------------------- */
+
+          {
+            path: '/apps/notes',
+            element: <Notes />,
+          },
+
+          {
+            path: '/utilities/form',
+            element: <Form />,
+          },
+
+          {
+            path: '/utilities/table',
+            element: <Table />,
+          },
+
+          {
+            path: '/apps/tickets',
+            element: <Tickets />,
+          },
+
+          {
+            path: '/apps/tickets/create',
+            element: <CreateTickets />,
+          },
+
+          {
+            path: '/apps/blog/post',
+            element: <Blog />,
+          },
+
+          {
+            path: '/apps/blog/detail/:id',
+            element: <BlogDetail />,
+          },
+
+
+          /* -------------------------------------------------
+             USER PROFILE
+          ------------------------------------------------- */
+
+          {
+            path: '/user-profile',
+            element: <UserProfile />,
+          },
+
+
+          /* -------------------------------------------------
+             ICONS
+          ------------------------------------------------- */
+
+          {
+            path: '/icons/iconify',
+            element: <SolarIcon />,
+          },
+
+
+          /* -------------------------------------------------
+             ADMIN 404
+          ------------------------------------------------- */
+
+          {
+            path: '*',
+            element: (
+              <Navigate
+                to="/auth/404"
+                replace
+              />
+            ),
+          },
+
+        ],
+      },
+
     ],
   },
+
+
+  /* =======================================================
+     PUBLIC AUTH ROUTES
+  ======================================================= */
+
   {
     path: '/',
     element: <BlankLayout />,
+
     children: [
 
-      { path: '/auth/auth2/register', element: <Register2 /> },
+      /* -------------------------------------------------
+         ADMIN LOGIN
+      ------------------------------------------------- */
 
-      { path: '/auth/maintenance', element: <Maintainance /> },
-      { path: '/login', element: <AdminLogin /> },
-      { path: '404', element: <Error /> },
-      { path: '/auth/404', element: <Error /> },
-      { path: '*', element: <Navigate to="/auth/404" /> },
+      {
+        path: '/login',
+        element: <AdminLogin />,
+      },
+
+
+      /* -------------------------------------------------
+         REGISTER
+      ------------------------------------------------- */
+
+      {
+        path: '/auth/auth2/register',
+        element: <Register2 />,
+      },
+
+
+      /* -------------------------------------------------
+         MAINTENANCE
+      ------------------------------------------------- */
+
+      {
+        path: '/auth/maintenance',
+        element: <Maintainance />,
+      },
+
+
+      /* -------------------------------------------------
+         404
+      ------------------------------------------------- */
+
+      {
+        path: '/auth/404',
+        element: <Error />,
+      },
+
+      {
+        path: '*',
+        element: (
+          <Navigate
+            to="/auth/404"
+            replace
+          />
+        ),
+      },
+
     ],
   },
+
 ];
 
-const router = createBrowserRouter(Router,
+
+/* =========================================================
+   CREATE ROUTER
+========================================================= */
+
+const router = createBrowserRouter(
+  Router,
   {
-    basename: "/ostik-admin"
+    basename: "/ostik-admin",
   }
 );
 
