@@ -6,7 +6,7 @@ import svgr from '@svgr/rollup';
 
 
 export default defineConfig({
-     base: "/ostik-admin/",
+    base: "/ostik-admin/",
     resolve: {
         alias: {
             src: resolve(__dirname, 'src'),

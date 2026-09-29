@@ -87,7 +87,7 @@ const Router = [
     path: '/',
     element: <FullLayout />,
     children: [
-      { path: '/', exact: true, element: <Modern /> }, 
+      { path: '/', element: (<Navigate to="/ostik-admin/login" replace/>) }, 
       { path: "/ostik-admin/dashboard", element: <Modern /> },
       { path: '/ostik-admin/orders', exact: true, element: <Orders /> }, 
       { path: '/ostik-admin/orders/:id', exact: true, element: <OrderDetails /> }, 
@@ -156,6 +156,10 @@ const Router = [
   },
 ];
 
-const router = createBrowserRouter(Router);
+const router = createBrowserRouter(Router,
+  {
+    basename: "/ostik-admin"
+  }
+);
 
 export default router;
