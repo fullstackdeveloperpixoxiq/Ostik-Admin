@@ -249,7 +249,7 @@ const Banners = () => {
             type="button"
             onClick={() =>
               navigate(
-                "/ostik-admin/banners/add"
+                "/banners/add"
               )
             }
             className="w-fit rounded-md bg-primary px-4 py-2 text-sm font-medium text-white"
@@ -428,7 +428,7 @@ const Banners = () => {
                             type="button"
                             onClick={() =>
                               navigate(
-                                `/ostik-admin/banners/${banner._id}`
+                                `/banners/${banner._id}`
                               )
                             }
                             className="rounded-md border border-gray-300 p-2 hover:bg-gray-50"
@@ -444,7 +444,7 @@ const Banners = () => {
                             type="button"
                             onClick={() =>
                               navigate(
-                                `/ostik-admin/banners/edit/${banner._id}`
+                                `/banners/edit/${banner._id}`
                               )
                             }
                             className="rounded-md border border-gray-300 p-2 hover:bg-gray-50"
