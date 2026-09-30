@@ -91,7 +91,7 @@ const ProductDetails = () => {
 
           <button
             onClick={() =>
-              navigate("/ostik-admin/products")
+              navigate("/products")
             }
             className="bg-primary text-white px-4 py-2 rounded-md"
           >
@@ -121,7 +121,7 @@ const ProductDetails = () => {
           <button
             onClick={() =>
               navigate(
-                `/ostik-admin/products/edit/${product._id}`
+                `/products/edit/${product._id}`
               )
             }
             className="rounded-md bg-primary px-4 py-2 text-white font-medium"
@@ -131,7 +131,7 @@ const ProductDetails = () => {
 
           <button
             onClick={() =>
-              navigate("/ostik-admin/products")
+              navigate("/products")
             }
             className="rounded-md border border-gray-300 px-4 py-2 font-medium"
           >

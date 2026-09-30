@@ -53,7 +53,7 @@ const EditProduct = () => {
     const fetchData = async () => {
       if (!id) {
         toast.error("Product ID is missing");
-        navigate("/ostik-admin/products");
+        navigate("/products");
         return;
       }
 
@@ -74,7 +74,7 @@ const EditProduct = () => {
 
         if (!product) {
           toast.error("Product not found");
-          navigate("/ostik-admin/products");
+          navigate("/products");
           return;
         }
 
@@ -218,7 +218,7 @@ const EditProduct = () => {
         response.data?.message || "Product updated successfully"
       );
 
-      navigate("/ostik-admin/products");
+      navigate("/products");
     } catch (error: unknown) {
       const message = axios.isAxiosError(error)
         ? error.response?.data?.message
@@ -475,7 +475,7 @@ const EditProduct = () => {
             <button
               type="button"
               onClick={() =>
-                navigate("/ostik-admin/products")
+                navigate("/products")
               }
               className="rounded-md border border-gray-300 px-5 py-3 font-medium"
             >

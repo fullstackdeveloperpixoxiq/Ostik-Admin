@@ -270,7 +270,7 @@ const Product = () => {
           <button
             type="button"
             onClick={() =>
-              navigate("/ostik-admin/products/add")
+              navigate("/products/add")
             }
             className="w-fit rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:opacity-90 transition"
           >
@@ -432,7 +432,7 @@ const Product = () => {
                           type="button"
                           onClick={() =>
                             navigate(
-                              `/ostik-admin/products/${product._id}`
+                              `/products/${product._id}`
                             )
                           }
                           className="text-primary hover:underline font-medium"
@@ -446,7 +446,7 @@ const Product = () => {
                           type="button"
                           onClick={() =>
                             navigate(
-                              `/ostik-admin/products/edit/${product._id}`
+                              `/products/edit/${product._id}`
                             )
                           }
                           className="text-blue-600 hover:underline font-medium"

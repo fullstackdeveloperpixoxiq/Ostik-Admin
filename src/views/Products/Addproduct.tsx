@@ -292,7 +292,7 @@ const AddProduct = () => {
           "Product created successfully"
       );
 
-      navigate("/ostik-admin/products");
+      navigate("/products");
     } catch (error: unknown) {
       console.error(
         "Create product error:",
@@ -577,7 +577,7 @@ const AddProduct = () => {
             <button
               type="button"
               onClick={() =>
-                navigate("/ostik-admin/products")
+                navigate("/products")
               }
               className="rounded-md border border-gray-300 px-5 py-3 font-medium"
             >
