@@ -130,7 +130,7 @@ const EditBanner = () => {
         );
 
         navigate(
-          "/ostik-admin/banners"
+          "/banners"
         );
 
         return;
@@ -329,7 +329,7 @@ const EditBanner = () => {
       );
 
       navigate(
-        `/ostik-admin/banners/${id}`
+        `/banners/${id}`
       );
 
     } catch (error: unknown) {
@@ -388,7 +388,7 @@ const EditBanner = () => {
           type="button"
           onClick={() =>
             navigate(
-              `/ostik-admin/banners/${id}`
+              `/banners/${id}`
             )
           }
           className="mb-4 flex items-center gap-2 text-sm text-gray-500 hover:text-gray-800"
@@ -661,7 +661,7 @@ const EditBanner = () => {
             type="button"
             onClick={() =>
               navigate(
-                `/ostik-admin/banners/${id}`
+                `/banners/${id}`
               )
             }
             className="rounded-md border border-gray-300 px-5 py-2.5 text-sm font-medium"

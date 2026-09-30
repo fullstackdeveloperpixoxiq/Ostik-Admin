@@ -93,7 +93,7 @@ const BannerDetails = () => {
         );
 
         navigate(
-          "/ostik-admin/banners"
+          "/banners"
         );
 
         return;
@@ -164,7 +164,7 @@ const BannerDetails = () => {
       );
 
       navigate(
-        "/ostik-admin/banners"
+        "/banners"
       );
 
     } catch (error: unknown) {
@@ -266,7 +266,7 @@ const BannerDetails = () => {
             type="button"
             onClick={() =>
               navigate(
-                "/ostik-admin/banners"
+                "/banners"
               )
             }
             className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white"
@@ -294,7 +294,7 @@ const BannerDetails = () => {
           type="button"
           onClick={() =>
             navigate(
-              "/ostik-admin/banners"
+              "/banners"
             )
           }
           className="mb-4 flex items-center gap-2 text-sm text-gray-500 hover:text-gray-800"
@@ -325,7 +325,7 @@ const BannerDetails = () => {
               type="button"
               onClick={() =>
                 navigate(
-                  `/ostik-admin/banners/edit/${banner._id}`
+                  `/banners/edit/${banner._id}`
                 )
               }
               className="flex items-center gap-2 rounded-md border border-gray-300 px-4 py-2 text-sm font-medium"

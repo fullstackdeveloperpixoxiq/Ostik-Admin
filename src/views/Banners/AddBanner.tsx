@@ -198,7 +198,7 @@ const AddBanner = () => {
       );
 
       navigate(
-        "/ostik-admin/banners"
+        "/banners"
       );
 
     } catch (error: unknown) {
@@ -233,7 +233,7 @@ const AddBanner = () => {
           type="button"
           onClick={() =>
             navigate(
-              "/ostik-admin/banners"
+              "/banners"
             )
           }
           className="mb-4 flex items-center gap-2 text-sm text-gray-500 hover:text-gray-800"
@@ -513,7 +513,7 @@ const AddBanner = () => {
             type="button"
             onClick={() =>
               navigate(
-                "/ostik-admin/banners"
+                "/banners"
               )
             }
             className="rounded-md border border-gray-300 px-5 py-2.5 text-sm font-medium"
