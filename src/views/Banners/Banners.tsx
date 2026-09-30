@@ -639,7 +639,7 @@ const Banners = () => {
                     type="button"
                     onClick={() =>
                       navigate(
-                        `/ostik-admin/banners/${banner._id}`
+                        `/banners/${banner._id}`
                       )
                     }
                     className="flex items-center justify-center gap-1 rounded-md border border-gray-300 px-3 py-2 text-sm font-medium"
@@ -653,7 +653,7 @@ const Banners = () => {
                     type="button"
                     onClick={() =>
                       navigate(
-                        `/ostik-admin/banners/edit/${banner._id}`
+                        `/banners/edit/${banner._id}`
                       )
                     }
                     className="flex items-center justify-center gap-1 rounded-md border border-gray-300 px-3 py-2 text-sm font-medium"
