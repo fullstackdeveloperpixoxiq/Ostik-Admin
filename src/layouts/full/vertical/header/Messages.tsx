@@ -117,7 +117,7 @@ const Messages = () => {
     const token = localStorage.getItem("adminToken");
 
     if (!token) {
-      navigate("/ostik-admin/login");
+      navigate("/login");
       return;
     }
 
@@ -396,7 +396,7 @@ const Messages = () => {
           <div className="pt-5 px-6">
 
             <Link
-              to="/ostik-admin/notifications"
+              to="/notifications"
               className="block"
             >
 

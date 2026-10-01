@@ -71,7 +71,7 @@ const TopCards = () => {
       img: iconConnect,
       bgcolor: "bg-info/10 dark:bg-info/10",
       textclr: "text-info dark:text-info",
-      url: "/ostik-admin/orders",
+      url: "/orders",
     },
     {
       key: "sales",
@@ -80,7 +80,7 @@ const TopCards = () => {
       img: iconSpeechBubble,
       bgcolor: "bg-success/10 dark:bg-success/10",
       textclr: "text-success dark:text-success",
-      url: "/ostik-admin/payments",
+      url: "/payments",
     },
     {
       key: "customers",
@@ -89,7 +89,7 @@ const TopCards = () => {
       img: iconUser,
       bgcolor: "bg-primary/10 dark:bg-lightprimary",
       textclr: "text-primary dark:text-primary",
-      url: "/ostik-admin/customers",
+      url: "/customers",
     },
     {
       key: "products",
@@ -98,7 +98,7 @@ const TopCards = () => {
       img: iconBriefcase,
       bgcolor: "bg-warning/10 dark:bg-warning/10",
       textclr: "text-warning dark:text-warning",
-      url: "/ostik-admin/products",
+      url: "/products",
     },
     {
       key: "pendingOrders",
@@ -107,7 +107,7 @@ const TopCards = () => {
       img: iconMailbox,
       bgcolor: "bg-secondary/10 dark:bg-secondary/10",
       textclr: "text-primary dark:text-primary",
-      url: "/ostik-admin/orders",
+      url: "/orders",
     },
     {
       key: "lowStock",
@@ -116,7 +116,7 @@ const TopCards = () => {
       img: iconFavorites,
       bgcolor: "bg-lighterror dark:bg-lighterror",
       textclr: "text-error dark:text-error",
-      url: "/ostik-admin/variants",
+      url: "/variants",
     },
   ];
 

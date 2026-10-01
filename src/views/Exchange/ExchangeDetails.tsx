@@ -41,7 +41,7 @@ const ExchangeDetails = () => {
       const token = localStorage.getItem("adminToken");
 
       if (!token) {
-        navigate("/ostik-admin/login");
+        navigate("/login");
         return;
       }
 
@@ -70,7 +70,7 @@ const ExchangeDetails = () => {
 
       if (err.response?.status === 401) {
         localStorage.removeItem("adminToken");
-        navigate("/ostik-admin/login");
+        navigate("/login");
         return;
       }
 
@@ -264,7 +264,7 @@ const ExchangeDetails = () => {
 
         <button
           onClick={() =>
-            navigate("/ostik-admin/exchanges")
+            navigate("/exchanges")
           }
           className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-black"
         >
@@ -309,7 +309,7 @@ const ExchangeDetails = () => {
 
       <button
         onClick={() =>
-          navigate("/ostik-admin/exchanges")
+          navigate("/exchanges")
         }
         className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-black"
       >
