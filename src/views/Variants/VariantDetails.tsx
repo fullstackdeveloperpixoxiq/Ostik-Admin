@@ -101,7 +101,7 @@ const VariantDetails = () => {
         <button
           onClick={() =>
             navigate(
-              "/ostik-admin/variants"
+              "/variants"
             )
           }
           className="flex items-center gap-2 text-sm text-gray-600 hover:text-black"
@@ -130,7 +130,7 @@ const VariantDetails = () => {
           <button
             onClick={() =>
               navigate(
-                "/ostik-admin/variants"
+                "/variants"
               )
             }
             className="rounded-lg p-2 hover:bg-gray-100"
@@ -153,7 +153,7 @@ const VariantDetails = () => {
         <button
           onClick={() =>
             navigate(
-              `/ostik-admin/variants/edit/${variant._id}`
+              `/variants/edit/${variant._id}`
             )
           }
           className="inline-flex items-center justify-center gap-2 rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white hover:bg-gray-800"

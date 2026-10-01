@@ -505,7 +505,7 @@ const Reviews = () => {
                           type="button"
                           onClick={() =>
                             navigate(
-                              `/ostik-admin/reviews/${review._id}`
+                              `/reviews/${review._id}`
                             )
                           }
                           className="text-primary hover:underline font-medium"
@@ -668,7 +668,7 @@ const Reviews = () => {
                       type="button"
                       onClick={() =>
                         navigate(
-                          `/ostik-admin/reviews/${review._id}`
+                          `/reviews/${review._id}`
                         )
                       }
                       className="rounded-md bg-primary px-3 py-2 text-xs font-medium text-white"

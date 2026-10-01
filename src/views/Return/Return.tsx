@@ -109,7 +109,7 @@ const Returns = () => {
           "Admin authentication required"
         );
 
-        navigate("/ostik-admin/login");
+        navigate("/login");
 
         return;
       }
@@ -151,7 +151,7 @@ const Returns = () => {
         );
 
         navigate(
-          "/ostik-admin/login"
+          "/login"
         );
       }
     } finally {
@@ -584,7 +584,7 @@ const Returns = () => {
                           type="button"
                           onClick={() =>
                             navigate(
-                              `/ostik-admin/returns/${returnRequest._id}`
+                              `/returns/${returnRequest._id}`
                             )
                           }
                           className="font-medium text-primary hover:underline"

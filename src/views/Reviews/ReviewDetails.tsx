@@ -82,7 +82,7 @@ const ReviewDetails = () => {
       if (!foundReview) {
         toast.error("Review not found");
 
-        navigate("/ostik-admin/reviews");
+        navigate("/reviews");
 
         return;
       }
@@ -194,7 +194,7 @@ const ReviewDetails = () => {
           "Review deleted successfully"
       );
 
-      navigate("/ostik-admin/reviews");
+      navigate("/reviews");
     } catch (error: unknown) {
       console.error("Delete review error:", error);
 
@@ -271,7 +271,7 @@ const ReviewDetails = () => {
           <button
             type="button"
             onClick={() =>
-              navigate("/ostik-admin/reviews")
+              navigate("/reviews")
             }
             className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white"
           >
@@ -327,7 +327,7 @@ const ReviewDetails = () => {
             <button
               type="button"
               onClick={() =>
-                navigate("/ostik-admin/reviews")
+                navigate("/reviews")
               }
               className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium"
             >

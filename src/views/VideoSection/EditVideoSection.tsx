@@ -131,7 +131,7 @@ const EditVideoSection = () => {
         "Video section updated successfully"
       );
 
-      navigate("/ostik-admin/video-section");
+      navigate("/video-section");
     } catch (error: any) {
       toast.error(
         error.response?.data?.message ||
@@ -160,7 +160,7 @@ const EditVideoSection = () => {
 
         <button
           onClick={() =>
-            navigate("/ostik-admin/video-section")
+            navigate("/video-section")
           }
           className="p-2 rounded-lg hover:bg-gray-100"
         >
@@ -331,7 +331,7 @@ const EditVideoSection = () => {
           <button
             type="button"
             onClick={() =>
-              navigate("/ostik-admin/video-section")
+              navigate("/video-section")
             }
             className="px-5 py-2.5 border border-gray-300 rounded-lg hover:bg-gray-50"
           >

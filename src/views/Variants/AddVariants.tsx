@@ -234,7 +234,7 @@ const AddVariant = () => {
       );
 
       navigate(
-        "/ostik-admin/variants"
+        "/variants"
       );
     } catch (error: any) {
       console.error(
@@ -263,7 +263,7 @@ const AddVariant = () => {
           type="button"
           onClick={() =>
             navigate(
-              "/ostik-admin/variants"
+              "/variants"
             )
           }
           className="rounded-lg p-2 hover:bg-gray-100"
@@ -539,7 +539,7 @@ const AddVariant = () => {
             type="button"
             onClick={() =>
               navigate(
-                "/ostik-admin/variants"
+                "/variants"
               )
             }
             className="rounded-lg border border-gray-300 px-5 py-2.5 text-sm font-medium hover:bg-gray-50"

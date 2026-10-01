@@ -137,7 +137,7 @@ const Variants = () => {
 
         <button
           onClick={() =>
-            navigate("/ostik-admin/variants/add")
+            navigate("/variants/add")
           }
           className="inline-flex items-center justify-center gap-2 rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white transition hover:bg-gray-800"
         >
@@ -288,7 +288,7 @@ const Variants = () => {
                       <button
                         onClick={() =>
                           navigate(
-                            `/ostik-admin/variants/${variant._id}`
+                            `/variants/${variant._id}`
                           )
                         }
                         className="rounded-lg p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900"
@@ -300,7 +300,7 @@ const Variants = () => {
                       <button
                         onClick={() =>
                           navigate(
-                            `/ostik-admin/variants/edit/${variant._id}`
+                            `/variants/edit/${variant._id}`
                           )
                         }
                         className="rounded-lg p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900"
@@ -443,7 +443,7 @@ const Variants = () => {
                 <button
                   onClick={() =>
                     navigate(
-                      `/ostik-admin/variants/${variant._id}`
+                      `/variants/${variant._id}`
                     )
                   }
                   className="rounded-lg p-2 text-gray-600 hover:bg-gray-100"
@@ -454,7 +454,7 @@ const Variants = () => {
                 <button
                   onClick={() =>
                     navigate(
-                      `/ostik-admin/variants/edit/${variant._id}`
+                      `/variants/edit/${variant._id}`
                     )
                   }
                   className="rounded-lg p-2 text-gray-600 hover:bg-gray-100"

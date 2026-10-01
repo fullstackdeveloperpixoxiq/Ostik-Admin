@@ -160,7 +160,7 @@ const VideoSection = () => {
         {!videoSection && (
           <button
             onClick={() =>
-              navigate("/ostik-admin/video-section/add")
+              navigate("/video-section/add")
             }
             className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-black text-white hover:bg-gray-800"
           >
@@ -234,7 +234,7 @@ const VideoSection = () => {
               <button
                 onClick={() =>
                   navigate(
-                    `/ostik-admin/video-section/edit/${videoSection._id}`
+                    `/video-section/edit/${videoSection._id}`
                   )
                 }
                 className="inline-flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 text-sm"
