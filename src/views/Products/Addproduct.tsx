@@ -109,11 +109,6 @@ const AddProduct = () => {
       return;
     }
 
-    if (files.length > 10) {
-      toast.error("You can upload a maximum of 10 images");
-      return;
-    }
-
     // Only allow image files
     const invalidFile = files.find(
       (file) => !file.type.startsWith("image/")
@@ -121,10 +116,26 @@ const AddProduct = () => {
 
     if (invalidFile) {
       toast.error("Only image files are allowed");
+      e.target.value= ""
       return;
     }
 
-    setImages(files);
+    setImages((prev)=>{
+      const remainingSlots= 10-prev.length
+
+       if (remainingSlots <= 0) {
+      toast.error("You can upload a maximum of 10 images");
+      return prev;
+    }
+
+    const filesToAdd= files.slice(0, remainingSlots);
+
+    if (filesToAdd.length < files.length) {
+      toast.error("You can upload a maximum of 10 images");
+    }
+
+    return[...prev, ...filesToAdd]
+    });
 
     // ---------------------------------------------
     // CREATE LOCAL PREVIEWS
@@ -152,12 +163,19 @@ const AddProduct = () => {
 
     Promise.all(readers)
       .then((results) => {
-        setPreviews(results);
+        setPreviews((prev)=>{
+          const remainingSlots= 10- prev.length
+          const previousToAdd= results.slice(0, remainingSlots);
+
+          return[...prev,...previousToAdd]
+        });
       })
       .catch((error) => {
         console.error("Preview error:", error);
         toast.error("Failed to preview selected images");
       });
+
+      e.target.value= ""
   };
 
   // =========================================================

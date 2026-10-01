@@ -131,22 +131,61 @@ const EditProduct = () => {
   // NEW IMAGES
   // =========================================================
 
-  const handleImageChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const files = Array.from(e.target.files || []);
+const handleImageChange = (
+  e: React.ChangeEvent<HTMLInputElement>
+) => {
+  const files = Array.from(e.target.files || []);
 
-    if (files.length > 10) {
+  if (files.length === 0) {
+    return;
+  }
+
+  // Only allow image files
+  const invalidFile = files.find(
+    (file) => !file.type.startsWith("image/")
+  );
+
+  if (invalidFile) {
+    toast.error("Only image files are allowed");
+    e.target.value = "";
+    return;
+  }
+
+  setNewImages((prev) => {
+    const remainingSlots = 10 - prev.length;
+
+    if (remainingSlots <= 0) {
       toast.error("You can upload a maximum of 10 images");
-      return;
+      return prev;
     }
 
-    setNewImages(files);
+    const filesToAdd = files.slice(0, remainingSlots);
 
-    setPreviews(
-      files.map((file) => URL.createObjectURL(file))
-    );
-  };
+    if (filesToAdd.length < files.length) {
+      toast.error("You can upload a maximum of 10 images");
+    }
+
+    return [...prev, ...filesToAdd];
+  });
+
+  // Create previews for newly selected files
+  const newPreviews = files.map((file) =>
+    URL.createObjectURL(file)
+  );
+
+  setPreviews((prev) => {
+    const remainingSlots = 10 - prev.length;
+
+    return [
+      ...prev,
+      ...newPreviews.slice(0, remainingSlots),
+    ];
+  });
+
+  // Important:
+  // Allows selecting files again
+  e.target.value = "";
+};
 
   // =========================================================
   // SUBMIT

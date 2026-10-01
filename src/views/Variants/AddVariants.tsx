@@ -84,15 +84,39 @@ const AddVariant = () => {
   ) => {
     const files = Array.from(
       e.target.files || []
-    ).slice(0, 5);
-
-    setImages(files);
-
-    const previews = files.map((file) =>
-      URL.createObjectURL(file)
     );
 
-    setPreviewImages(previews);
+    if(files.length === 0) return;
+
+    setImages((prev)=>{
+      const remainingSlots= 5- prev.length;
+
+      if (remainingSlots <= 0) {
+      toast.error("You can upload maximum 5 images");
+      return prev;
+    }
+    const filesToAdd = files.slice(0, remainingSlots);
+
+    if (filesToAdd.length < files.length) {
+      toast.error("You can upload maximum 5 images");
+    }
+
+    return [...prev, ...filesToAdd]
+    });
+
+    setPreviewImages((prev)=>{
+      const remainingSlots= 5- prev.length;
+
+      const filesToAdd= files.slice(0,remainingSlots);
+
+      const newPreviews = filesToAdd.map((file) =>
+      URL.createObjectURL(file)
+    );
+    return[...prev, ...newPreviews]
+    });
+
+    //allow select file again
+    e.target.value= ""
   };
 
 

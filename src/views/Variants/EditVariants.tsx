@@ -141,21 +141,44 @@ const EditVariant = () => {
   // NEW IMAGE SELECT
   // =========================================================
 
-  const handleImages = (
+ const handleImages = (
     e: ChangeEvent<HTMLInputElement>
   ) => {
     const files = Array.from(
       e.target.files || []
-    ).slice(0, 5);
+    );
 
-    setImages(files);
+    if(files.length === 0) return;
 
-    const previews =
-      files.map((file) =>
-        URL.createObjectURL(file)
-      );
+    setImages((prev)=>{
+      const remainingSlots= 5- prev.length;
 
-    setPreviewImages(previews);
+      if (remainingSlots <= 0) {
+      toast.error("You can upload maximum 5 images");
+      return prev;
+    }
+    const filesToAdd = files.slice(0, remainingSlots);
+
+    if (filesToAdd.length < files.length) {
+      toast.error("You can upload maximum 5 images");
+    }
+
+    return [...prev, ...filesToAdd]
+    });
+
+    setPreviewImages((prev)=>{
+      const remainingSlots= 5- prev.length;
+
+      const filesToAdd= files.slice(0,remainingSlots);
+
+      const newPreviews = filesToAdd.map((file) =>
+      URL.createObjectURL(file)
+    );
+    return[...prev, ...newPreviews]
+    });
+
+    //allow select file again
+    e.target.value= ""
   };
 
 
