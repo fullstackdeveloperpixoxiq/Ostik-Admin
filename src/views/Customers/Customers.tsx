@@ -235,7 +235,7 @@ const Customers = () => {
             type="button"
             onClick={() =>
               navigate(
-                "/ostik-admin/customers/add"
+                "/customers/add"
               )
             }
             className="w-fit rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:opacity-90 transition"
@@ -457,7 +457,7 @@ const Customers = () => {
                           type="button"
                           onClick={() =>
                             navigate(
-                              `/ostik-admin/customers/${customer._id}`
+                              `/customers/${customer._id}`
                             )
                           }
                           className="text-primary hover:underline font-medium"
@@ -471,7 +471,7 @@ const Customers = () => {
                           type="button"
                           onClick={() =>
                             navigate(
-                              `/ostik-admin/customers/edit/${customer._id}`
+                              `/customers/edit/${customer._id}`
                             )
                           }
                           className="text-blue-600 hover:underline font-medium"

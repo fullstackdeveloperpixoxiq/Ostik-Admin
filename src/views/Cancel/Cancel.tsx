@@ -556,7 +556,7 @@ const Cancellations = () => {
                         <button
                           onClick={() =>
                             navigate(
-                              `/ostik-admin/orders/${order._id}`
+                              `/orders/${order._id}`
                             )
                           }
                           className="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-700 transition hover:border-gray-300 hover:bg-gray-50"

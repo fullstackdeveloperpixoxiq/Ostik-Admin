@@ -83,7 +83,7 @@ const EditCategory = () => {
           toast.error("Category not found");
 
           navigate(
-            "/ostik-admin/categories"
+            "/categories"
           );
 
           return;
@@ -278,7 +278,7 @@ const EditCategory = () => {
       );
 
       navigate(
-        `/ostik-admin/categories/${id}`
+        `/categories/${id}`
       );
     } catch (error: unknown) {
       console.error(
@@ -509,7 +509,7 @@ const EditCategory = () => {
               type="button"
               onClick={() =>
                 navigate(
-                  `/ostik-admin/categories/${id}`
+                  `/categories/${id}`
                 )
               }
               className="rounded-md border border-gray-300 px-5 py-3 font-medium"

@@ -205,7 +205,7 @@ const AddCategory = () => {
           "Category created successfully"
       );
 
-      navigate("/ostik-admin/categories");
+      navigate("/categories");
     } catch (error: unknown) {
       console.error(
         "Create category error:",
@@ -372,7 +372,7 @@ const AddCategory = () => {
               type="button"
               onClick={() =>
                 navigate(
-                  "/ostik-admin/categories"
+                  "/categories"
                 )
               }
               className="rounded-md border border-gray-300 px-5 py-3 font-medium"

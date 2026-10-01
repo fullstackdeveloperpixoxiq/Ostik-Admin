@@ -293,7 +293,7 @@ const Orders = () => {
                   <TableCell>
                     <button
                       type="button"
-                      onClick={()=>navigate(`/ostik-admin/orders/${order._id}`)}
+                      onClick={()=>navigate(`/orders/${order._id}`)}
                       className="text-primary hover:underline font-medium"
                     >
                       View

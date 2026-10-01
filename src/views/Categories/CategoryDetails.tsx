@@ -119,7 +119,7 @@ const CategoryDetails = () => {
               type="button"
               onClick={() =>
                 navigate(
-                  "/ostik-admin/categories"
+                  "/categories"
                 )
               }
               className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white"
@@ -178,7 +178,7 @@ const CategoryDetails = () => {
               type="button"
               onClick={() =>
                 navigate(
-                  `/ostik-admin/categories/edit/${category._id}`
+                  `/categories/edit/${category._id}`
                 )
               }
               className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:opacity-90 transition"
@@ -190,7 +190,7 @@ const CategoryDetails = () => {
               type="button"
               onClick={() =>
                 navigate(
-                  "/ostik-admin/categories"
+                  "/categories"
                 )
               }
               className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium hover:bg-gray-50 transition"

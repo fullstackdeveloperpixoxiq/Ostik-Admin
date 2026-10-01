@@ -209,7 +209,7 @@ const AddCustomer = () => {
       );
 
       navigate(
-        "/ostik-admin/customers"
+        "/customers"
       );
 
     } catch (error: unknown) {
@@ -482,7 +482,7 @@ const AddCustomer = () => {
               type="button"
               onClick={() =>
                 navigate(
-                  "/ostik-admin/customers"
+                  "/customers"
                 )
               }
               className="rounded-md border border-gray-300 px-5 py-3 font-medium"

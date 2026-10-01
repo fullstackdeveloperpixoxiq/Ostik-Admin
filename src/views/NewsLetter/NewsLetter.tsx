@@ -338,7 +338,7 @@ const Newsletter = () => {
                             type="button"
                             onClick={() =>
                               navigate(
-                                `/ostik-admin/newsletter/${subscriber._id}`
+                                `/newsletter/${subscriber._id}`
                               )
                             }
                             className="rounded-md border border-gray-300 p-2 hover:bg-gray-50"
@@ -467,7 +467,7 @@ const Newsletter = () => {
                     type="button"
                     onClick={() =>
                       navigate(
-                        `/ostik-admin/newsletter/${subscriber._id}`
+                        `/newsletter/${subscriber._id}`
                       )
                     }
                     className="flex items-center justify-center gap-2 rounded-md border border-gray-300 px-3 py-2 text-sm font-medium"

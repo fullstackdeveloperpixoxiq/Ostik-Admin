@@ -293,7 +293,7 @@ const ContactDetails = () => {
 
 
       navigate(
-        "/ostik-admin/contacts"
+        "/contacts"
       );
 
     } catch (error: unknown) {
@@ -409,7 +409,7 @@ const ContactDetails = () => {
             type="button"
             onClick={() =>
               navigate(
-                "/ostik-admin/contacts"
+                "/contacts"
               )
             }
             className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white"
@@ -437,7 +437,7 @@ const ContactDetails = () => {
           type="button"
           onClick={() =>
             navigate(
-              "/ostik-admin/contacts"
+              "/contacts"
             )
           }
           className="mb-4 flex items-center gap-2 text-sm text-gray-500 hover:text-gray-800"

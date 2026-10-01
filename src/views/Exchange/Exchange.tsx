@@ -95,7 +95,7 @@ const Exchange = () => {
           "Admin authentication required"
         );
 
-        navigate("/ostik-admin/login");
+        navigate("/login");
 
         return;
       }
@@ -137,7 +137,7 @@ const Exchange = () => {
         );
 
         navigate(
-          "/ostik-admin/login"
+          "/login"
         );
       }
     } finally {
@@ -553,7 +553,7 @@ const Exchange = () => {
                           type="button"
                           onClick={() =>
                             navigate(
-                              `/ostik-admin/exchanges/${exchange._id}`
+                              `/exchanges/${exchange._id}`
                             )
                           }
                           className="text-primary hover:underline font-medium"

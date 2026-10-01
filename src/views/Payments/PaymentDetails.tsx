@@ -335,7 +335,7 @@ const PaymentDetails = () => {
             type="button"
             onClick={() =>
               navigate(
-                "/ostik-admin/payments"
+                "/payments"
               )
             }
             className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white"
@@ -393,7 +393,7 @@ const PaymentDetails = () => {
             type="button"
             onClick={() =>
               navigate(
-                "/ostik-admin/payments"
+                "/payments"
               )
             }
             className="w-fit rounded-md border border-gray-300 px-4 py-2 text-sm font-medium hover:bg-gray-50"

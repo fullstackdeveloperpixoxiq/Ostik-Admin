@@ -408,7 +408,7 @@ const Payments = () => {
                             type="button"
                             onClick={() =>
                               navigate(
-                                `/ostik-admin/payments/${payment._id}`
+                                `/payments/${payment._id}`
                               )
                             }
                             className="inline-flex items-center gap-1 rounded-md border border-gray-300 px-3 py-1.5 text-sm font-medium hover:bg-gray-50"
@@ -606,7 +606,7 @@ const Payments = () => {
                     type="button"
                     onClick={() =>
                       navigate(
-                        `/ostik-admin/payments/${payment._id}`
+                        `/payments/${payment._id}`
                       )
                     }
                     className="flex w-full items-center justify-center gap-2 rounded-md border border-gray-300 px-3 py-2 text-sm font-medium hover:bg-gray-50"

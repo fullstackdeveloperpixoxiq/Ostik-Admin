@@ -169,7 +169,7 @@ const CustomerDetails = () => {
             type="button"
             onClick={() =>
               navigate(
-                "/ostik-admin/customers"
+                "/customers"
               )
             }
             className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white"
@@ -212,7 +212,7 @@ const CustomerDetails = () => {
               type="button"
               onClick={() =>
                 navigate(
-                  `/ostik-admin/customers/edit/${customer._id}`
+                  `/customers/edit/${customer._id}`
                 )
               }
               className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white"
@@ -224,7 +224,7 @@ const CustomerDetails = () => {
               type="button"
               onClick={() =>
                 navigate(
-                  "/ostik-admin/customers"
+                  "/customers"
                 )
               }
               className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium"

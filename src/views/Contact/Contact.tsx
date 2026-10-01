@@ -443,7 +443,7 @@ const Contacts = () => {
                             type="button"
                             onClick={() =>
                               navigate(
-                                `/ostik-admin/contacts/${item._id}`
+                                `/contacts/${item._id}`
                               )
                             }
                             className="rounded-md border border-gray-300 p-2 hover:bg-gray-50"
@@ -570,7 +570,7 @@ const Contacts = () => {
                       type="button"
                       onClick={() =>
                         navigate(
-                          `/ostik-admin/contacts/${item._id}`
+                          `/contacts/${item._id}`
                         )
                       }
                       className="flex items-center gap-1 rounded-md border border-gray-300 px-3 py-2 text-sm"

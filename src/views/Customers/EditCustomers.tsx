@@ -84,7 +84,7 @@ const EditCustomer = () => {
           );
 
           navigate(
-            "/ostik-admin/customers"
+            "/customers"
           );
 
           return;
@@ -309,7 +309,7 @@ const EditCustomer = () => {
       );
 
       navigate(
-        `/ostik-admin/customers/${id}`
+        `/customers/${id}`
       );
 
     } catch (error: unknown) {
@@ -594,7 +594,7 @@ const EditCustomer = () => {
               type="button"
               onClick={() =>
                 navigate(
-                  `/ostik-admin/customers/${id}`
+                  `/customers/${id}`
                 )
               }
               className="rounded-md border border-gray-300 px-5 py-3 font-medium"
