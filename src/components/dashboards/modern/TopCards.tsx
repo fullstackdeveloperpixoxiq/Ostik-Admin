@@ -76,7 +76,7 @@ const TopCards = () => {
     {
       key: "sales",
       title: "Sales",
-      desc: `₹${Number(stats.sales || 0).toLocaleString("en-IN")}`,
+      desc: `₹${Math.round(Number(stats.sales || 0)).toLocaleString("en-IN")}`,
       img: iconSpeechBubble,
       bgcolor: "bg-success/10 dark:bg-success/10",
       textclr: "text-success dark:text-success",
