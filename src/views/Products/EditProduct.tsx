@@ -246,7 +246,7 @@ const handleImageChange = (
       data.append(
         "existingImages",
         JSON.stringify(existingImages
-          
+
         )
       )
 
