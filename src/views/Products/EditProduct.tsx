@@ -127,6 +127,12 @@ const EditProduct = () => {
     }));
   };
 
+//remove image
+  const handleRemoveExistingImage= (index: number)=>{
+      setExistingImages((prev)=> prev.filter((_,i)=> i !== index))
+    }
+
+
   // =========================================================
   // NEW IMAGES
   // =========================================================
@@ -164,7 +170,6 @@ const handleImageChange = (
     if (filesToAdd.length < files.length) {
       toast.error("You can upload a maximum of 10 images");
     }
-
     return [...prev, ...filesToAdd];
   });
 
@@ -237,6 +242,13 @@ const handleImageChange = (
         String(formData.isNewArrival)
       );
       data.append("status", formData.status);
+
+      data.append(
+        "existingImages",
+        JSON.stringify(existingImages
+          
+        )
+      )
 
       newImages.forEach((image) => {
         data.append("images", image);
@@ -401,13 +413,20 @@ const handleImageChange = (
                 {existingImages.map((image, index) => (
                   <div
                     key={index}
-                    className="h-24 rounded-lg overflow-hidden border"
+                    className="relative h-24 rounded-lg overflow-hidden border"
                   >
                     <img
                       src={image}
                       alt={`Product ${index + 1}`}
                       className="h-full w-full object-cover"
                     />
+
+                    <button type="button"
+                    onClick={()=> handleRemoveExistingImage(index)}
+                    className="absolute top-1 right-1 flex h-6 w-6 items-center justify-center rounded-full bg-black/70 text-white hover:bg-red-600"
+                    >
+                       ×
+                    </button>
                   </div>
                 ))}
               </div>
