@@ -426,7 +426,7 @@ const Variants = () => {
                     className={`mt-1 text-sm font-medium ${
                       variant.stock === 0
                         ? "text-red-600"
-                        : variant.stock <= 5
+                        : variant.stock <= 15
                         ? "text-orange-600"
                         : "text-gray-900"
                     }`}
