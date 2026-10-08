@@ -62,6 +62,9 @@ const EditVariant = () => {
   const [previewImages, setPreviewImages] =
     useState<string[]>([]);
 
+  const [existingImages, setExistingImages] =
+    useState<string[]>([]);  
+
   const [loading, setLoading] =
     useState(true);
 
@@ -98,6 +101,8 @@ const EditVariant = () => {
         }
 
         setVariant(data);
+
+        setExistingImages(data.images || [] )
 
         setName(data.name || "");
         setSku(data.sku || "");
@@ -191,6 +196,7 @@ const EditVariant = () => {
       )
     );
 
+
     setPreviewImages((prev) =>
       prev.filter(
         (_, i) => i !== index
@@ -198,6 +204,11 @@ const EditVariant = () => {
     );
   };
 
+  //remove image function
+  const removeExistingImage= (index : number)=> {
+    setExistingImages((prev)=>
+    prev.filter((_,i)=> i !== index))
+  }
 
   // =========================================================
   // SUBMIT
@@ -267,6 +278,11 @@ const EditVariant = () => {
         "sku",
         sku.trim().toUpperCase()
       );
+
+      formData.append(
+        "existingImages",
+        JSON.stringify(existingImages)
+      )
 
       formData.append(
         "price",
@@ -531,7 +547,7 @@ const EditVariant = () => {
 
 
         {/* CURRENT IMAGES */}
-        {variant.images?.length > 0 && (
+        {existingImages.length > 0 && (
           <div>
 
             <h3 className="mb-3 text-sm font-medium text-gray-700">
@@ -540,16 +556,29 @@ const EditVariant = () => {
 
             <div className="flex flex-wrap gap-3">
 
-              {variant.images.map(
+              {existingImages.map(
                 (image, index) => (
-                  <img
-                    key={`${image}-${index}`}
+                  <div
+                  key={`${image}-${index}`}
+                  className="relative">
+
+                    <img
                     src={image}
                     alt={`${variant.name} ${
                       index + 1
                     }`}
                     className="h-24 w-24 rounded-lg border border-gray-200 object-cover"
                   />
+                  <button type="button"
+                  onClick={()=> removeExistingImage(index)}
+                  className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-black text-white shadow-md transition hover:bg-red-600"
+                  aria-label="Remove image"
+                  >
+                    <X size={13}/>
+                  </button>
+
+                  </div>
+                  
                 )
               )}
 
