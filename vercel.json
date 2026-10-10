@@ -2,6 +2,10 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
+      "source": "/ostik-admin/ostikFavicon.png",
+      "destination": "/ostikFavicon.png"
+    },
+    {
       "source": "/ostik-admin/assets/(.*)",
       "destination": "/assets/$1"
     },
@@ -11,3 +15,4 @@
     }
   ]
 }
+
