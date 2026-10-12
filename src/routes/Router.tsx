@@ -312,6 +312,10 @@ const BlogDetail = Loadable(
   lazy(() => import('../views/apps/blog/BlogDetail'))
 );
 
+const Settings = Loadable(
+  lazy(() => import('../views/Settings/Settings'))
+);
+
 
 /* =========================================================
    ICONS
@@ -755,6 +759,15 @@ const Router = [
       {
         path: '/auth/maintenance',
         element: <Maintainance />,
+      },
+
+       /* -------------------------------------------------
+         SETTINGS
+      ------------------------------------------------- */
+
+      {
+        path: '/settings',
+        element: <Settings />,
       },
 
 

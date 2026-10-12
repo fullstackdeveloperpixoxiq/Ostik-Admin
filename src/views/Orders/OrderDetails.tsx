@@ -32,6 +32,14 @@ const OrderDetails = () => {
 
   const [statusForm, setStatusForm] = useState("");
 
+  
+const [paymentStatusForm, setPaymentStatusForm] =
+  useState("Pending");
+const [carrierForm, setCarrierForm] =
+  useState("India Post");
+const [availableCarriers, setAvailableCarriers] =
+  useState<string[]>([]);
+
   // =========================================================
   // CANCEL MODAL
   // =========================================================
@@ -69,6 +77,8 @@ const OrderDetails = () => {
 
       setOrder(fetchedOrder);
       setStatusForm(fetchedOrder.orderStatus);
+      setPaymentStatusForm(fetchedOrder.paymentStatus || "Pending")
+      setCarrierForm(fetchedOrder.shipping?.carrier || "India Post")
 
     } catch (err: any) {
       console.error(
@@ -85,12 +95,35 @@ const OrderDetails = () => {
     }
   };
 
+  
+const fetchShippingSettings = async () => {
+  try {
+    const response = await axios.get(
+      `${import.meta.env.VITE_API_URL}/api/settings/shipping`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    const carriers = response.data.settings?.availableCarriers;
+
+    if (Array.isArray(carriers)) {
+      setAvailableCarriers(carriers);
+    }
+  } catch (err) {
+    console.error("Failed to fetch shipping carriers:", err);
+  }
+};
+
   // =========================================================
   // INITIAL LOAD
   // =========================================================
 
   useEffect(() => {
     fetchOrder();
+    fetchShippingSettings()
   }, [id]);
 
   // =========================================================
@@ -211,6 +244,8 @@ const OrderDetails = () => {
         `${import.meta.env.VITE_API_URL}/api/order/admin/${id}`,
         {
           orderStatus: statusForm,
+          paymentStatus: paymentStatusForm,
+          carrier: carrierForm
         },
         {
           headers: {
@@ -222,8 +257,15 @@ const OrderDetails = () => {
       setOrder(response.data.order);
 
       setStatusForm(
-        response.data.order.orderStatus
-      );
+        response.data.order.orderStatus);
+
+      setPaymentStatusForm(
+  response.data.order.paymentStatus || "Pending"
+);  
+
+setCarrierForm(
+  response.data.order.shipping?.carrier || "India Post"
+);
 
       setSuccess(
         "Order status updated successfully."
@@ -496,7 +538,7 @@ const OrderDetails = () => {
             </h2>
           </div>
 
-          <div className="mt-5 grid gap-5 md:grid-cols-2">
+          <div className="mt-5 grid gap-5 md:grid-cols-3">
 
             {/* ORDER STATUS */}
 
@@ -506,32 +548,16 @@ const OrderDetails = () => {
                 Order Status
               </label>
 
-              {isLocked ? (
-                <div>
-                  <div
-                    className={`flex items-center gap-2 rounded-xl border px-4 py-3 text-sm font-medium ${status.className}`}
-                  >
-                    <StatusIcon size={17} />
-
-                    {order.orderStatus}
-                  </div>
-
-                  <p className="mt-2 text-xs text-gray-500">
-                    This order cannot be changed because it has already been{" "}
-                    {order.orderStatus.toLowerCase()}.
-                  </p>
-                </div>
-              ) : (
-                <div className="flex flex-col gap-3 sm:flex-row">
-
                   <select
+                  id="orderStatus"
                     value={statusForm}
                     onChange={(e) =>
                       setStatusForm(
                         e.target.value
                       )
                     }
-                    className="h-11 flex-1 rounded-xl border border-gray-200 bg-white px-3 text-sm text-gray-900 outline-none focus:border-black"
+                    disabled={isLocked}
+                    className="h-11 w-full flex-1 rounded-xl border border-gray-200 bg-white px-3 text-sm text-gray-900 outline-none focus:border-black"
                   >
                     <option value="Pending">
                       Pending
@@ -549,56 +575,86 @@ const OrderDetails = () => {
                       Delivered
                     </option>
                   </select>
-
-                  <button
-                    onClick={
-                      handleUpdateStatus
-                    }
-                    disabled={
-                      saving ||
-                      statusForm ===
-                        order.orderStatus
-                    }
-                    className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-black px-5 text-sm font-medium text-white transition hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
-                  >
-                    {saving ? (
-                      <>
-                        <Loader2
-                          size={16}
-                          className="animate-spin"
-                        />
-
-                        Updating...
-                      </>
-                    ) : (
-                      <>
-                        <Save size={16} />
-
-                        Update Status
-                      </>
-                    )}
-                  </button>
-
                 </div>
-              )}
-
-            </div>
 
             {/* PAYMENT STATUS */}
 
-            <div>
+            
+<div>
+  <label
+    htmlFor="paymentStatus"
+    className="mb-2 block text-sm font-medium text-gray-700"
+  >
+    Payment Status
+  </label>
 
-              <label className="mb-2 block text-sm font-medium text-gray-700">
-                Payment Status
-              </label>
+  <select
+    id="paymentStatus"
+    value={paymentStatusForm}
+    onChange={(e) => setPaymentStatusForm(e.target.value)}
+    className="h-11 w-full rounded-xl border border-gray-200 bg-white px-3 text-sm text-gray-900 outline-none focus:border-black"
+  >
+    <option value="Pending">Pending</option>
+    <option value="Paid">Paid</option>
+    <option value="Failed">Failed</option>
+    <option value="Refunded">Refunded</option>
+  </select>
+</div>
 
-              <div className="flex h-11 items-center rounded-xl border border-gray-200 bg-gray-50 px-4 text-sm font-medium text-gray-800">
-                {order.paymentStatus}
-              </div>
+{/* delivery methods */}
 
-            </div>
+ {/* DELIVERY CARRIER — ADD THIS HERE */}
+  <div>
+    <label
+      htmlFor="carrier"
+      className="mb-2 block text-sm font-medium text-gray-700"
+    >
+      Delivery Carrier
+    </label>
+
+    <select
+      id="carrier"
+      value={carrierForm}
+      onChange={(e) => setCarrierForm(e.target.value)}
+      className="h-11 w-full rounded-xl border border-gray-200 bg-white px-3 text-sm text-gray-900 outline-none focus:border-black"
+    >
+      {availableCarriers.map((carrier) => (
+        <option key={carrier} value={carrier}>
+          {carrier}
+        </option>
+      ))}
+    </select>
+  </div>
 
           </div>
+
+          {/* LOCKED ORDER MESSAGE */}
+  {isLocked && (
+    <p className="mt-3 text-xs text-gray-500">
+      This order is {order.orderStatus.toLowerCase()}; its management fields are locked.
+    </p>
+  )}
+
+  {/* SINGLE UPDATE BUTTON */}
+  <div className="mt-6 flex justify-end border-t border-gray-100 pt-5">
+    <button
+      onClick={handleUpdateStatus}
+      disabled={saving || isLocked}
+      className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-black px-6 text-sm font-medium text-white transition hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
+    >
+      {saving ? (
+        <>
+          <Loader2 size={16} className="animate-spin" />
+          Updating...
+        </>
+      ) : (
+        <>
+          <Save size={16} />
+          Update Order
+        </>
+      )}
+    </button>
+  </div>
 
           {/* ===================================================
               ADMIN CANCEL

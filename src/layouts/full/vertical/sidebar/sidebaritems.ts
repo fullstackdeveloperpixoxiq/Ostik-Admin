@@ -209,7 +209,7 @@ const SidebarContent: MenuItem[] = [
         name: "Settings",
         icon: "solar:settings-minimalistic-linear",
         id: uniqueId(),
-        url: "settings",
+        url: "/settings",
         isPro: false,
       },
     ],
