@@ -32,6 +32,8 @@ const OrderDetails = () => {
 
   const [statusForm, setStatusForm] = useState("");
 
+  const [trackingNumberForm, setTrackingNumberForm] = useState("");
+
   
 const [paymentStatusForm, setPaymentStatusForm] =
   useState("Pending");
@@ -79,6 +81,7 @@ const [availableCarriers, setAvailableCarriers] =
       setStatusForm(fetchedOrder.orderStatus);
       setPaymentStatusForm(fetchedOrder.paymentStatus || "Pending")
       setCarrierForm(fetchedOrder.shipping?.carrier || "India Post")
+      setTrackingNumberForm(fetchedOrder.shipping?.trackingNumber || "")
 
     } catch (err: any) {
       console.error(
@@ -245,7 +248,8 @@ const fetchShippingSettings = async () => {
         {
           orderStatus: statusForm,
           paymentStatus: paymentStatusForm,
-          carrier: carrierForm
+          carrier: carrierForm,
+          trackingNumber: trackingNumberForm.trim(),
         },
         {
           headers: {
@@ -265,6 +269,10 @@ const fetchShippingSettings = async () => {
 
 setCarrierForm(
   response.data.order.shipping?.carrier || "India Post"
+);
+
+setTrackingNumberForm(
+  response.data.order.shipping?.trackingNumber || ""
 );
 
       setSuccess(
@@ -625,6 +633,27 @@ setCarrierForm(
       ))}
     </select>
   </div>
+
+  <div>
+  <label
+    htmlFor="trackingNumber"
+    className="mb-2 block text-sm font-medium text-gray-700"
+  >
+    Tracking Number / AWB
+  </label>
+
+  <input
+    id="trackingNumber"
+    type="text"
+    value={trackingNumberForm}
+    onChange={(e) =>
+      setTrackingNumberForm(e.target.value)
+    }
+    placeholder="Enter courier tracking ID"
+    disabled={isLocked}
+    className="h-11 w-full rounded-xl border border-gray-200 bg-white px-3 text-sm text-gray-900 outline-none focus:border-black disabled:opacity-50"
+  />
+</div>
 
           </div>
 
