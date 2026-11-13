@@ -26,7 +26,7 @@ const UserProfile = () => {
         firstName: "Ostik",
         lastName: "Admin",
         email: "support@ostik.in",
-        phone: "+91 85904 973558",
+        phone: "+91 85904 97358",
         position: "Admin",
         facebook: "#!",
         twitter: "#!",
